@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ответы на вопросы по объектам в JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        p, pre {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        ul {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="output"></div>
+
+<script>
+// 1. Что такое объект в JavaScript?
+const answer1 = `
+    <h2>1. Что представляет собой объект в JavaScript?</h2>
+    <p>Объект — это структура данных, которая объединяет в себе свойства и методы. Свойства — это характеристики объекта, а методы — это функции, связанные с объектом. 
+    Объекты позволяют удобно хранить и работать с данными, представляя их как набор ключ-значение.</p>
+    <p>Примеры стандартных объектов в JavaScript:</p>
+    <ul>
+        <li>Объект <code>Math</code> — содержит математические функции и константы.</li>
+        <li>Объект <code>Date</code> — предназначен для работы с датами и временем.</li>
+        <li>Объект <code>Array</code> — представляет собой массив элементов.</li>
+        <li>Объект <code>window</code> — глобальный объект браузера, включающий методы и свойства для работы с окном.</li>
+    </ul>
+`;
+
+// 2. Пример создания объекта в JavaScript
+const answer2 = `
+    <h2>2. Как создать объект в JavaScript</h2>
+    <pre>
+const person = {
+    name: 'John',
+    age: 30,
+    profession: 'Developer',
+    greet: function() {
+        console.log('Hello, my name is ' + this.name);
+    }
+};
+    </pre>
+`;
+
+// 3. Как получить доступ к свойствам объекта?
+const answer3 = `
+    <h2>3. Как обращаться к свойствам объекта?</h2>
+    <pre>
+const person = {
+    name: 'John',
+    age: 30,
+    profession: 'Developer'
+};
+
+console.log(person.name);      // Доступ через точку
+console.log(person['age']);    // Доступ через квадратные скобки
+    </pre>
+`;
+
+// 4. Как удалить свойство объекта?
+const answer4 = `
+    <h2>4. Как удалить свойство объекта?</h2>
+    <p>Свойство объекта можно удалить с помощью оператора <code>delete</code>.</p>
+    <pre>
+const person = {
+    name: 'John',
+    age: 30,
+    profession: 'Developer'
+};
+
+delete person.age;
+console.log(person);  // { name: 'John', profession: 'Developer' }
+    </pre>
+`;
+
+// 5. Как проверить наличие свойства в объекте?
+const answer5 = `
+    <h2>5. Как проверить, существует ли свойство в объекте?</h2>
+    <p>Проверить наличие свойства можно с помощью оператора <code>in</code> или метода <code>hasOwnProperty()</code>.</p>
+    <pre>
+const person = {
+    name: 'John',
+    profession: 'Developer'
+};
+
+console.log('name' in person);                 // true
+console.log(person.hasOwnProperty('age'));     // false
+    </pre>
+`;
+
+// 6. Как перебрать свойства объекта?
+const answer6 = `
+    <h2>6. Как выполнить перебор всех свойств объекта?</h2>
+    <p>Для перебора всех свойств объекта можно использовать цикл <code>for...in</code>.</p>
+    <pre>
+const person = {
+    name: 'John',
+    profession: 'Developer',
+    age: 30
+};
+
+for (let key in person) {
+    console.log(key + ': ' + person[key]);
+}
+    </pre>
+`;
+
+// Вывод всех ответов на страницу
+document.getElementById('output').innerHTML = answer1 + answer2 + answer3 + answer4 + answer5 + answer6;
+</script>
+
+</body>
+</html>

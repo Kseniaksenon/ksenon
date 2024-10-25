@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .one{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+        background-color: rgb(181, 120, 238);
+        width: fit-content;
+    }
+
+    #drag1 {
+        width: 100px;
+        height: 100px;
+        background-color: #ff0000;
+        margin: 10px;
+        cursor: pointer;
+    }
+    #dropzone {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        margin: 10px;
+        border: 2px dashed #000;
+    }
+    
+    .hover-element {
+        width: 200px;
+        height: 100px;
+        background-color: rgb(0, 191, 255);
+        text-align: center;
+        line-height: 100px;
+        margin: 50px;
+        transition: background-color 0.3s;
+    }
+
+    .iphone{
+        width: 100px;
+        height: 50px;
+background-color: #000;   
+color: aliceblue;
+ }
+</style>
+<body>
+    <div class="one">
+        <input value="Нажми на меня" onclick="alert('Click')" type="button">
+    <input type="button" onclick="countRabbist()" value="Считать кроликов">
+    <input type="button" id="elem" value="Нажми на меня">
+    <button onclick="alert(this.innerHTML)">Нажми на меня</button>
+    <input type="button" id="elem2" value="Нажми на меня">
+    </div>
+    <div class="two">
+        <p id="myText">Кликни на меня, чтобы изменить фон!</p>
+        <button id="button">Нажми Alt+Shift+Click на мне!</button>
+       
+
+    </div>
+
+    <div id="drag1" draggable="true">Drag me</div>
+<div id="dropzone">Drop here</div>
+
+
+<div class="hover-element">Hover over me!</div>
+
+
+<div class="iphone" id="touchElement">IPHOONE</div>
+</body>
+<script>
+    function countRabbist(){
+        for(let i=1; i<=3; i++){
+            alert('Кролик номер ' + i);
+        }
+    };
+    elem.onclick = function(){
+        alert('Спасибо');
+    };
+    function handler1(){
+        alert('Спасибо');
+    };
+    function handler2(){
+        alert('Спасибо еще раз');
+    };
+    elem2.onclick = () => alert('Привет');
+    elem2.addEventListener("click", handler1);
+    elem2.addEventListener("click", handler2);
+
+
+    <!-- ------------------------------------ -->
+
+    document.getElementById("myText").onclick = function() {
+        document.body.style.backgroundColor = getRandomColor();
+    };
+    
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+
+    button.onclick = function(event) {
+        if (event.altKey && event.shiftKey) {
+          alert('Ура!');
+        }
+      };
+    
+
+      const dragItem = document.getElementById("drag1");
+    const dropZone = document.getElementById("dropzone");
+
+    dragItem.addEventListener("dragstart", (event) => {
+        event.dataTransfer.setData("text", event.target.id);
+    });
+
+    dropZone.addEventListener("dragover", (event) => {
+        event.preventDefault();
+    });
+
+    dropZone.addEventListener("drop", (event) => {
+        event.preventDefault();
+        const data = event.dataTransfer.getData("text");
+        const draggedElement = document.getElementById(data);
+        dropZone.appendChild(draggedElement);
+    });
+
+
+
+    const hoverElement = document.querySelector('.hover-element');
+
+    hoverElement.addEventListener('pointerenter', () => {
+        hoverElement.style.backgroundColor = 'lightgreen';
+    });
+
+    hoverElement.addEventListener('pointerleave', () => {
+        hoverElement.style.backgroundColor = 'lightblue';
+    });
+
+    
+    document.addEventListener('scroll', function(event){
+        document.body.style.backgroundColor = getRandomColor();
+    })
+
+    // Получаем элемент, на который будем навешивать обработчики событий
+var touchElement = document.getElementById('touchElement');
+
+// Добавляем обработчик события touchmove
+touchElement.addEventListener('touchmove', function(event) {
+    // Получаем первое касание (touch) из события
+    var touch = event.touches[0];
+
+    // Получаем координаты касания
+    var x = touch.clientX;
+    var y = touch.clientY;
+
+    // Выводим координаты в консоль
+    alert("X: " + x + ", Y: " + y);
+});
+
+
+setInterval(() => {
+    alert('Прошло 10 секунд');
+}, 10000);
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме студента</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+        .section p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Резюме</h1>
+        </header>
+        <section class="section">
+            <h2>Личная информация</h2>
+            <p><strong>Фамилия:</strong> Леута</p>
+            <p><strong>Имя:</strong> Ксения</p>
+            <p><strong>Отчество:</strong> Петровна</p>
+            <p><strong>Дата рождения:</strong> 01.01.2000</p>
+            <p><strong>Телефон:</strong> +375 (29) 896-20-61</p>
+            <p><strong>Email:</strong> leutaksenia683@gmail.com</p>
+            <p><strong>Адрес:</strong> г. Гродно, ул. Новооктябрьская,14 кв.304а</p>
+        </section>
+        <section class="section">
+            <h2>Образование</h2>
+            <p><strong>Образование:</strong> Гродненский государственный политехнический колледж</p>
+            <p><strong>Специальность:</strong> Программное обеспечение информационных технологий</p>
+        </section>
+        <section class="section">
+            <h2>Опыт работы</h2>
+            <p><strong>Компания:</strong> Название компании</p>
+            <p><strong>Должность:</strong> Должность</p>
+            <p><strong>Период работы:</strong> месяц/год - месяц/год</p>
+            <p><strong>Обязанности:</strong></p>
+            <ul>
+                <li>Забота о правильном оформлении всех необходимых документов, связанных с информационной технологией (IT).</li>
+                <li>Установка и настройка программного обеспечения на компьютерах с учетом потребностей сотрудников и требований безопасности.</li>
+                <li>Настройка и поддержание работы сетевого оборудования (маршрутизаторов, коммутаторов, маршрутизации сетевого трафика).</li>
+                <li>Настройка и поддержание работы сетевого оборудования (маршрутизаторов, коммутаторов, маршрутизации сетевого трафика).</li>
+                <li>Установка и обновление драйверов для обеспечения совместимости и производительности.</li>
+            </ul>
+        </section>
+        <section class="section">
+            <h2>Навыки</h2>
+            <ul>
+            <li>Понимание языков программирования Python,С#</li>
+            <li> Понимание принципов работы операционных систем, таких как Linux, Windows,а также умение настраивать и обслуживать их.</li>
+            <li>Умение эффективно коммуницировать с другими членами команды, клиентами и пользователями для понимания их требований и предоставления качественного сервиса.</li>
+            <li>Опыт работы в коллективе, способность эффективно взаимодействовать с другими разработчиками, тестировщиками, администраторами и другими специалистами.</li>
+            </ul>
+            <section class="section">
+            <h2>Дополнительная информация</h2>
+            <ul>
+            <p><strong>Инностранные языки:</strong> Английский язык</p>
+            </ul>
+            <section class="section">
+            <h2>Изображение</h2>
+            <ul>
+                <img src="ead8baa03c956b11e25a76cb55080ab5.jpeg" width="1024" height="683">
+            </ul>
+    </div>
+</body>
+</html>

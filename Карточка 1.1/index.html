@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="contact-form-container">
+        <form class="contact-form" id="contactForm">
+            <h2>Contact Form</h2>
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Ваше имя" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Ваш email" required>
+            </div>
+            <div class="input-group">
+                <textarea id="message" placeholder="Ваше сообщение" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Отправить</button>
+            <button type="button" class="delete-cookies-btn">Удалить cookie</button>
+        </form>
+    </div>
+    <div id="output"></div>
+
+    <script>
+        document.querySelector('.contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+            const name = document.querySelector('#name').value.trim();
+            const email = document.querySelector('#email').value.trim();
+            const message = document.querySelector('#message').value.trim();
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name || !email || !message) {
+                alert('Все поля обязательны для заполнения.');
+                return;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert('Введите корректный адрес электронной почты.');
+                return;
+            }
+
+            // Сохранение данных в cookie
+            document.cookie = `name=${name}; path=/; max-age=3600`;
+            document.cookie = `email=${email}; path=/; max-age=3600`;
+            document.cookie = `message=${message}; path=/; max-age=3600`;
+
+            // Вывод информации о введённых данных
+            document.getElementById('output').innerHTML = `
+                <h3>Ваши данные:</h3>
+                <p><strong>Имя:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Сообщение:</strong> ${message}</p>
+            `;
+            document.getElementById('output').classList.add('shown'); // Добавляем анимацию
+        });
+
+        document.querySelector('.delete-cookies-btn').addEventListener('click', function() {
+            const cookies = document.cookie.split("; ");
+            for (let cookie of cookies) {
+                const eqPos = cookie.indexOf("=");
+                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+            }
+            alert('Все cookie удалены.');
+            document.getElementById('output').innerHTML = ''; // Очистка вывода после удаления cookie
+        });
+    </script>
+</body>
+</html>
